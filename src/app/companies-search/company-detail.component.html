@@ -1,0 +1,33 @@
+<h2>Company Details</h2>
+<form [formGroup]="companyForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+    <label class="center-block">Email:
+      <input class="form-control" formControlName="email">
+    </label>
+  </div>
+  <div style="margin-bottom: 1em">
+    <button type="submit"
+            [disabled]="companyForm.invalid" class="btn btn-success">Search</button> &nbsp;
+  </div>
+</form>
+<p>Form value: {{ companyForm.value | json }}</p>
+<p>Form status: {{ companyForm.status | json }}</p>
+
+<div class="container">
+  <h2>Results from searchcompnies.us</h2>
+  <div class="row" *ngFor="let comp of companies">
+    <div class="card card-block">
+      <h4 class="card-title">{{ comp.name }}</h4>
+      <p class="card-text">
+          <b>state:</b> {{comp.state}}
+          <b>city:</b> {{comp.city}}
+          <b>zip:</b> {{comp.zip}}
+          <b>api id:</b> {{comp.id}}
+      </p>
+      <a href="{{comp.url}}" class="card-link">{{comp.url}}</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+.form-control{
+  width: 200px;
+}
+
+company-detail{
+  text-align: left;
+}
